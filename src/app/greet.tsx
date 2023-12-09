@@ -3,7 +3,11 @@
 import { useEffect, useState } from "react"
 import { invoke } from '@tauri-apps/api/tauri';
 
-export default function Greet({ rustFn }) {
+interface Props {
+    rustFn: string
+}
+
+export default function Greet({ rustFn }: Props) {
     const [greeting, setGreeting] = useState('');
 
     useEffect( () => {
