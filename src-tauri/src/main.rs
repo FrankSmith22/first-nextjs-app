@@ -3,9 +3,10 @@
 
 fn main() {
   tauri::Builder::default()
-    .invoke_handler(tauri::generate_handler![greet, second_greet])
-    .run(tauri::generate_context!())
-    .expect("error while running tauri application");
+  .invoke_handler(tauri::generate_handler![greet, second_greet, get_random_cat])
+  // .invoke_handler(tauri::generate_handler![greet, second_greet])
+  .run(tauri::generate_context!())
+  .expect("error while running tauri application");
 }
 
 #[tauri::command]
@@ -16,4 +17,15 @@ fn greet(name_string: &str) -> String {
 #[tauri::command]
 fn second_greet(name_string: &str) -> String {
   format!("Hello again, {}!", name_string)
+}
+
+#[tauri::command]
+fn get_random_cat() -> Result<(), Box<dyn std::error::Error>> {
+  let resp = reqwest::blocking::get("https://api.thecatapi.com/v1/images/search")?;
+  let body = resp.text()?;
+  
+  println!("body = {:?}", body);
+    
+  // Ok(format!("{}", body))
+  Ok(())
 }
