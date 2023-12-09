@@ -3,6 +3,7 @@
 import { useCallback, useState } from "react";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Container, Row, Col, Button } from 'reactstrap';
+import Greet from "./greet";
 
 export default function Home() {
 
@@ -16,6 +17,12 @@ export default function Home() {
  
     return (
         <Container>
+            <Row>
+                <Col>
+                    <Greet rustFn={'greet'}/>
+                    <Greet rustFn={'second_greet'}/>
+                </Col>
+            </Row>
             <Row>
                 <Col>
                     <Button color="primary" onClick={fetchRandomCat}>
