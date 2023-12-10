@@ -1,16 +1,18 @@
 "use client"
 
 import { useCallback, useState } from "react";
-import { invoke } from '@tauri-apps/api/tauri';
+import { Response, fetch } from '@tauri-apps/api/http';
 import { Container, Row, Col, Button } from 'reactstrap';
 
 export default function RandomCat() {
     const [randomCat, setRandomCat] = useState("");
 
     const fetchRandomCat = useCallback(async () => {
-        invoke<string>('get_random_cat')
-            .then(result => setRandomCat(result))
-            .catch(console.error)
+        const response: Response<String> = await fetch("https://api.thecatapi.com/v1/images/search", {
+            method: "GET",
+            timeout: 30,
+        });
+        setRandomCat(`${response.data[0].url}`)
     }, [])
  
     return (
@@ -24,8 +26,7 @@ export default function RandomCat() {
             </Row>
             <Row>
                 <Col>
-                    {/* {randomCat ? <img src={randomCat} alt="kiggy"/> : <></>} */}
-                    {randomCat}
+                    {randomCat ? <img src={randomCat} alt="kiggy"/> : <></>}
                 </Col>
             </Row>
         </>

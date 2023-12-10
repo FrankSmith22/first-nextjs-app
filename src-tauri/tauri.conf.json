@@ -12,7 +12,12 @@
   },
   "tauri": {
     "allowlist": {
-      "all": false
+      "all": false,
+      "http": {
+        "scope": ["https://api.thecatapi.com/*"],
+        "all": true,
+        "request": true
+      }
     },
     "bundle": {
       "active": true,
