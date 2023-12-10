@@ -14,9 +14,13 @@
     "allowlist": {
       "all": false,
       "http": {
-        "scope": ["https://api.thecatapi.com/*"],
+        "scope": ["https://api.thecatapi.com/*", "https://cdn2.thecatapi.com/*"],
         "all": true,
         "request": true
+      },
+      "fs": {
+        "scope": ["$DESKTOP/*"],
+        "writeFile": true
       }
     },
     "bundle": {
