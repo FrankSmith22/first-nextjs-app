@@ -20,7 +20,7 @@ export default function RandomCat() {
     }, [randomCatUrl])
 
     const fetchRandomCat = useCallback(async () => {
-        const response: Response<String> = await fetch("https://api.thecatapi.com/v1/images/search", {
+        const response = await fetch("https://api.thecatapi.com/v1/images/search", {
             method: "GET",
             timeout: 30,
         });

@@ -1,6 +1,3 @@
-"use client"
-
-import { useCallback, useState } from "react";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Container, Row, Col, Button } from 'reactstrap';
 import Greet from "./greet";
