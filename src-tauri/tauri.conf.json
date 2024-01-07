@@ -21,6 +21,16 @@
       "fs": {
         "scope": ["$DESKTOP/*"],
         "writeFile": true
+      },
+      "shell": {
+        "execute": true,
+        "scope": [
+          {
+            "name": "run-python-script",
+            "cmd": "python",
+            "args": true
+          }
+        ]
       }
     },
     "bundle": {

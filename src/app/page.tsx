@@ -2,6 +2,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import { Container, Row, Col, Button } from 'reactstrap';
 import Greet from "./greet";
 import RandomCat from "./randomCat";
+import ScriptRun from "./scriptRun";
 
 export default function Home() {
  
@@ -14,6 +15,7 @@ export default function Home() {
                 </Col>
             </Row>
             <RandomCat />
+            <ScriptRun />
         </Container>
     )
 }
